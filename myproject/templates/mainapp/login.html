@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/login1.css">
+    <link rel="stylesheet" href="static/css/templatemo-klassy-cafe.css">
+    <title>Login</title>
+</head>
+<body>
+<!-- BU LOGINGA TEGISHLIY -->
+<div class="container" id="container" style="margin-top: 40vh;">
+    <div class="form-container sign-up-container">
+        <form action="{% url 'register_page' %}" method="POST">
+            {% csrf_token %}
+            <h1>Create Account</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <input type="text" name="username" placeholder="Name"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <input type="password" name="password1" placeholder="Password"/>
+            <input type="password" name="password2" placeholder="Password"/>
+            {% if messages %}
+            {% for message in messages%}
+            <div class="" role="alert">
+            {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <button>Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="{% url 'login_page' %}" method="POST">
+            {% csrf_token %}
+            <h1>Sign in</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="text" name="username" placeholder="Name"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <a href="#">Forgot your password?</a>
+            <button>Sign In</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p style="color:white; font-size: 15px; font-family:sans-serif">To keep connected with us please login
+                    with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p style="color:white; font-size: 15px; font-family:sans-serif">Enter your personal details and start
+                    journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header-area header-sticky" style="background-color: gainsboro;">
+    <div class="">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'home' %}" class="logo">
+                        <img src="static/images/klassy-logo.png" align="klassy cafe html template">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{% url 'home' %}" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'menu' %}">Menu</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'register_page' %}">Login</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="static/js/login1.js"></script>
+</body>
+</html>
